@@ -48,8 +48,10 @@ const displayPhones = (phones, dataLimit) => {
 const processSearch = dataLimit => {
   toggleSpinner(true);
   const searchField = document.getElementById('search-field');
-  const searchText = searchField.value;
-  console.log(searchText);
+  let searchText = searchField.value;
+  if (searchText === '') {
+    searchText = 'apple';
+  }
   loadPhones(searchText, dataLimit);
 };
 
@@ -107,4 +109,4 @@ const displayPhoneDetails = phone => {
     `;
 };
 
-loadPhones('apple');
+loadPhones('apple', 10);
